@@ -14,3 +14,5 @@ Frontend (Web Technologies): HTML5 and CSS3
 Database Connector: MySQL Connector/Python
 
 Web Server: Flask Development Server
+
+Web Path:  http://127.0.0.1:5000
