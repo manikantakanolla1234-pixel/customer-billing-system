@@ -1,40 +1,71 @@
 # Customer-Billing-System
-Customer Billing System Project is a simple console application designed to demonstrate the practical use of C programming language and its features as wells as to generate an application which can be used in any departmental store, shops, cafes etc. for billing to the customer.
+Departmental Store Billing System
 
-You can use this application to keep the records such as name, address, mobile number, paid amount, due amount, payment date etc. of your regular costumer. Moreover, if you have a new customer, you can add and edit the account at any time.
+This is a project that I developed as part of the Database Management Systems (DBMS) course laboratory during my undergraduate studies.
 
-The source code of Customer Billing System Project in C has been written in C programming language without of the use of any graphics. The code is complete, totally error free and not that long – just. It is to be compiled in Code::Blocks  using GCC compiler.
+The project is designed to automate the billing process of a departmental store. It allows users to register and log in, view available products, add products to a shopping cart, calculate the total bill with GST, complete payments, and generate invoices. The system also manages product stock automatically using database triggers and maintains data consistency through SQL transactions.
 
-### User Defined Functions Used:
+Backend (Database): MySQL
 
-Although graphics has not been used in this project, the application of user defined functions and structures have been effectively used here. The major user defined functions used in this C project are:
-1. `void input()`                                                                                                                  
-2. `void writefile()`                                                                                                                  
-3. `void search()`                                                                                                                     
-4. `void output()`
+Backend (Application): Python Flask
 
-The function `void input()` is used to add the new customer account i.e. with the help of this functions the parameters such as name, address, phone number, amount paid etc. are asked and entered. Another function `void writefile()` has been utilized to create a file on hard disk of computer for storing the information and data of a customer.
+Frontend (Web Technologies): HTML5 and CSS3
 
-The function `void search()` has been used to look for previously stored accounts either by name or by number of the customer. The fourth and the last user defined function used in this Customer Billing System Project in C is `void output()` which has been defined to show the result as console output.
+Database Connector: MySQL Connector/Python
 
-In Customer Billing System, structure has very beautifully used to group the data type in single unit. The date variables (`day`, `month` and `year`) have been grouped in the structures named date where as other variables such as name, number, street, paid amount etc. are grouped under another structure named account.
+Web Server: Flask Development Server
 
-Customer Billing System application is so simple to use. In order to use the application, click at the exe file and then, you will have three options to:
 
-1. `To add account`
-2. `To search account`
-3. `To exit`
 
-As per your need, enter 1, 2,or 3 and follow the instructions provided by the application itself.
+The project implements important DBMS concepts such as:
 
-### Features:
+Database tables
 
-It can hold any number of accounts and account can be added to the program at any time.
-The programming of simple calculations such as calculation of due amount, balance etc. have been embed in the code of project.
-The Customer Billing System project in C gives you the facility of searching the account by two ways, either by name of the customer or by the number of customer.
-The due amount to be paid is shown as negative balance.
-If you have nothing to do with the program, you can directly exit from the main menu.
+Primary keys
 
-The project can be used in many aspects, firstly the application file generated can be used. Secondly the source code of Customer Billing System project in C can be used to learn C programming and its different features such as use of user defined functions, structures etc. Submitting this C project as your college/school C project without any modifications is completely discouraged.
+Foreign keys
 
-<p align="center"><b>© Created by Manovishnu</b></p?
+SQL queries
+
+JOIN operations
+
+INSERT, SELECT, UPDATE, and DELETE operations
+
+Database transactions
+
+COMMIT and ROLLBACK
+
+Database triggers
+
+Automatic inventory/stock management
+
+User authentication
+
+Billing and invoice generation
+
+
+
+The project includes the following main modules:
+
+User Registration and Login - 
+Users can create an account and securely log in to the system.
+
+Product Management - 
+The system displays available products along with their prices and stock quantities.
+
+Shopping Cart - 
+Users can add multiple products to the cart, update quantities, and remove products.
+
+Billing System - 
+The system automatically calculates the subtotal, GST, and final payable amount.
+
+Payment and Checkout - 
+Customer details and payment methods are recorded during checkout.
+
+Database Transactions - 
+Customer information, order details, and purchased items are stored using SQL transactions. If an error occurs, the transaction is rolled back to maintain data consistency.
+
+Database Trigger - 
+A MySQL trigger automatically reduces the available product stock after a successful purchase.
+Invoice Generation
+A final bill is generated after successful payment, including customer details, purchased products, GST, payment method, and total amount.
