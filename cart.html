@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Shopping Cart</h1>
+
+
+{% if cart_items %}
+
+
+<table>
+
+<tr>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Quantity</th>
+
+<th>Subtotal</th>
+
+<th>Remove</th>
+
+</tr>
+
+
+{% for item in cart_items %}
+
+<tr>
+
+<td>
+
+{{ item.product_name }}
+
+</td>
+
+<td>
+
+₹{{ item.price }}
+
+</td>
+
+<td>
+
+{{ item.quantity }}
+
+</td>
+
+<td>
+
+₹{{ item.subtotal }}
+
+</td>
+
+<td>
+
+<a
+
+href="/remove-cart/{{ item.cart_id }}"
+
+>
+
+Remove
+
+</a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<h3>
+
+Subtotal:
+
+₹{{ "%.2f"|format(total) }}
+
+</h3>
+
+
+<h3>
+
+GST (5%):
+
+₹{{ "%.2f"|format(gst) }}
+
+</h3>
+
+
+<h2>
+
+Grand Total:
+
+₹{{ "%.2f"|format(grand_total) }}
+
+</h2>
+
+
+<h2>
+
+Customer Details
+
+</h2>
+
+
+<form
+
+action="/checkout"
+
+method="POST"
+
+>
+
+<input
+
+name="customer_name"
+
+placeholder="Customer Name"
+
+required
+
+>
+
+
+<input
+
+name="phone"
+
+placeholder="Phone Number"
+
+required
+
+>
+
+
+<select
+
+name="payment_method"
+
+>
+
+<option>
+
+Cash
+
+</option>
+
+<option>
+
+UPI
+
+</option>
+
+<option>
+
+Card
+
+</option>
+
+</select>
+
+
+<button>
+
+Complete Payment
+
+</button>
+
+</form>
+
+
+{% else %}
+
+<h2>
+
+Your cart is empty.
+
+</h2>
+
+{% endif %}
+
+
+{% endblock %}

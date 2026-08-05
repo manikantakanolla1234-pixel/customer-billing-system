@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Available Products</h1>
+
+{% if session.get("user_id") %}
+
+<p>
+
+Welcome,
+
+<b>
+
+{{ session.get("username") }}
+
+</b>
+
+</p>
+
+{% endif %}
+
+
+<table>
+
+<tr>
+
+<th>ID</th>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Stock</th>
+
+<th>Action</th>
+
+</tr>
+
+
+{% for product in products %}
+
+<tr>
+
+<td>
+
+{{ product.product_id }}
+
+</td>
+
+<td>
+
+{{ product.product_name }}
+
+</td>
+
+<td>
+
+₹{{ product.price }}
+
+</td>
+
+<td>
+
+{{ product.stock }}
+
+</td>
+
+<td>
+
+<form
+
+action="/add-to-cart/{{ product.product_id }}"
+
+method="POST"
+
+>
+
+<button>
+
+Add to Cart
+
+</button>
+
+</form>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

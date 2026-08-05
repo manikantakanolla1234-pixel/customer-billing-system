@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>
+
+Welcome,
+
+{{ username }}
+
+</h1>
+
+<h2>
+
+Admin Dashboard
+
+</h2>
+
+
+<form
+
+action="/add-product"
+
+method="POST"
+
+>
+
+<input
+
+name="name"
+
+placeholder="Product Name"
+
+required
+
+>
+
+
+<input
+
+name="price"
+
+placeholder="Price"
+
+required
+
+>
+
+
+<input
+
+name="stock"
+
+placeholder="Stock"
+
+required
+
+>
+
+
+<button>
+
+Add Product
+
+</button>
+
+</form>
+
+{% endblock %}

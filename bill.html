@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="bill">
+
+
+<h1>
+
+Departmental Store
+
+</h1>
+
+
+<h3>
+
+Invoice Number:
+
+#{{ order_id }}
+
+</h3>
+
+
+<hr>
+
+
+<p>
+
+Customer:
+
+<b>
+
+{{ customer_name }}
+
+</b>
+
+</p>
+
+
+<p>
+
+Phone:
+
+{{ phone }}
+
+</p>
+
+
+<p>
+
+Payment:
+
+{{ payment_method }}
+
+</p>
+
+
+<hr>
+
+
+<table>
+
+<tr>
+
+<th>Product</th>
+
+<th>Price</th>
+
+<th>Quantity</th>
+
+<th>Total</th>
+
+</tr>
+
+
+{% for item in items %}
+
+<tr>
+
+<td>
+
+{{ item.product_name }}
+
+</td>
+
+<td>
+
+₹{{ item.price }}
+
+</td>
+
+<td>
+
+{{ item.quantity }}
+
+</td>
+
+<td>
+
+₹{{ item.price * item.quantity }}
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+
+<h3>
+
+Subtotal:
+
+₹{{ "%.2f"|format(subtotal) }}
+
+</h3>
+
+
+<h3>
+
+GST:
+
+₹{{ "%.2f"|format(gst) }}
+
+</h3>
+
+
+<h2>
+
+Grand Total:
+
+₹{{ "%.2f"|format(grand_total) }}
+
+</h2>
+
+
+<button
+
+onclick="window.print()"
+
+>
+
+Print Bill
+
+</button>
+
+
+</div>
+
+{% endblock %}
