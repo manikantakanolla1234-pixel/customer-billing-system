@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Admin Dashboard</h1>
+
+
+<hr>
+
+<h2>Add New Product</h2>
+
+<form
+    action="/add-product"
+    method="POST"
+>
+
+    <label>Product Name</label>
+
+    <br>
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Enter Product Name"
+        required
+    >
+
+    <br><br>
+
+
+    <label>Price</label>
+
+    <br>
+
+    <input
+        type="number"
+        name="price"
+        placeholder="Enter Price"
+        step="0.01"
+        min="0"
+        required
+    >
+
+    <br><br>
+
+
+    <label>Stock</label>
+
+    <br>
+
+    <input
+        type="number"
+        name="stock"
+        placeholder="Enter Stock Quantity"
+        min="0"
+        required
+    >
+
+    <br><br>
+
+
+    <button type="submit">
+        Add Product
+    </button>
+
+</form>
+
+
+<hr>
+
+
+<h2>Available Products</h2>
+
+<table>
+
+    <tr>
+
+        <th>
+            Product ID
+        </th>
+
+        <th>
+            Product Name
+        </th>
+
+        <th>
+            Price
+        </th>
+
+        <th>
+            Stock
+        </th>
+
+    </tr>
+
+
+    {% for product in products %}
+
+    <tr>
+
+        <td>
+            {{ product.product_id }}
+        </td>
+
+        <td>
+            {{ product.product_name }}
+        </td>
+
+        <td>
+            ₹{{ product.price }}
+        </td>
+
+        <td>
+            {{ product.stock }}
+        </td>
+
+    </tr>
+
+    {% endfor %}
+
+</table>
+
+{% endblock %}
